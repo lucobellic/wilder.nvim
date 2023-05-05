@@ -329,7 +329,8 @@ function! s:render_lines(state, ctx, result) abort
   for l:Top in a:state.top
     let l:line = s:draw_top_or_bottom_line(l:Top, l:ctx, a:result)
 
-    if empty(l:line)
+    " Trick for my personal config only, hide the cmdline
+    if empty(l:line) || l:top_height == 1
       continue
     endif
 
